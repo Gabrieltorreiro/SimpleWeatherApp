@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a1f44;
+    color: white;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    padding: 10px;
+    margin-top: 4%;
+    width: 700px;
+    display: grid;
+    grid-template-columns: auto 20%;
+    grid-template-areas: "header header" "txt btn" "weather weather";
+    grid-row-gap: 25px;
+    grid-column-gap: 5px;
+    align-items: center;
+}
+
+@media (max-width: 600px){
+    .container {
+        grid-template-areas: "header header" "txt txt" "btn btn" "weather weather";
+    }
+}
+
+.header {
+    grid-area: header;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.container input[type="text"] {
+    grid-area: txt;
+    padding: 9px 5px;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.5em;
+    color: inherit;
+    border-bottom: 1px solid white;
+}
+
+.container input[type="text"]:focus-visible {
+    background: none;
+}
+
+.container input[type="button"] {
+    grid-area: btn;
+    background-color: #ff1e42;
+    outline: none;
+    border: none;
+    padding: 15px 15px;
+    color: white;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+.container input[type="button"]:hover {
+    background-color: #bd1934;
+}
+
+.weather {
+    grid-area: weather;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #fff;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 8px 5px 0 black;
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    position: relative;
+}
+
+.weather > div {
+    margin: 7px 0;
+}
+
+.weather .city-name {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(0,0,0,0.8);
+    display: flex;
+    align-items:flex-start;
+}
+
+.weather .temp {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.weather .country {
+    font-weight: bold;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: orange;
+    color: white;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 4px;
+    text-align: center;
+    vertical-align: center;
+    border-radius: 7px;
+    margin-left: 5px;
+}
+
+
+.weather .description {
+    font-weight: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.5;
+}
