@@ -18,7 +18,7 @@ xhttp.onreadystatechange = function () {
     if (this.readyState == 4 & this.status == 200) {
         response = JSON.parse(this.response);
         let temp = response.main.temp;
-        const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${response.weather[0]["icon"]}.svg`;
+        let icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${response.weather[0]["icon"]}.svg`;
         temp = parseFloat(temp);
         temp = Math.floor(temp);
         $(".city-name").html(response.name + "<div class='country'>" + response.sys.country + "</div");
