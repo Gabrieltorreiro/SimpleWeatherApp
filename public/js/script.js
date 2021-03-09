@@ -5,16 +5,14 @@ let city, country;
 let response;
 
 $("#submit").click(() => {
-    city = $('#city').val();
-    window.localStorage.setItem("city", city);
-    if (city != "") {
-        url = `/weather?city=${city}`;
-        xhttp.open("GET", url);
-        xhttp.send();
-    }
+    sendRequest();
 });
 
-
+window.addEventListener("keydown", e=>{
+    if(e.key=="Enter"){
+        sendRequest();
+    }
+});
 
 xhttp.onreadystatechange = function () {
     if (this.readyState == 4 & this.status == 200) {
@@ -33,8 +31,18 @@ xhttp.onreadystatechange = function () {
 
 window.onload = function () {
     $(".weather").attr("style", "display: none;");
-    let buf = window.localStorage.getItem("city");
-    if (buf) {
-        $("#city").value = buf;
+    let loadCity = window.localStorage.getItem("city");
+    if (loadCity) {
+        $("#city").val(loadCity);
+    }
+}
+
+function sendRequest() {
+    city = $('#city').val();
+    window.localStorage.setItem("city", city);
+    if (city != "") {
+        url = `/weather?city=${city}`;
+        xhttp.open("GET", url);
+        xhttp.send();
     }
 }
